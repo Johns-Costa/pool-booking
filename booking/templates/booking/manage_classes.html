@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Classes - Swimming Pool Booking System{% endblock %}
+
+{% block content %}
+    <h2>Manage Classes</h2>
+    <ul>
+        {% for class in classes %}
+            <li>{{ class.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

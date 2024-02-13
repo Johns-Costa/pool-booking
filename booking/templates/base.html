@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Swimming Pool Booking System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'booking/style.css' %}">
+    <link rel="stylesheet" href="{% static 'booking/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'booking/normalize.css' %}">
+    <!-- Add any additional stylesheets or scripts here -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Swimming Pool Booking System</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'book_class' %}">Book a Class</a></li>
+                    {% if user.is_staff %}
+                        <li><a href="{% url 'manage_classes' %}">Manage Classes</a></li>
+                    {% endif %}
+                    <!-- Add additional navigation links as needed -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- Add footer content here -->
+            &copy; 2023 Swimming Pool Booking System
+        </div>
+    </footer>
+</body>
+</html>

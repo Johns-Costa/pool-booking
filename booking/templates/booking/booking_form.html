@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Book a Class - Swimming Pool Booking System{% endblock %}
+
+{% block content %}
+    <h2>Book a Class</h2>
+    {% if error_message %}
+        <p class="text-danger">{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="selected_class">Class</label>
+            {{ form.selected_class }}
+        </div>
+        <div class="form-group">
+            <label for="date_time">Date and Time</label>
+            <input type="datetime-local" id="date_time" name="date_time" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+{% endblock %}

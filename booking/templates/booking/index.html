@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Swimming Pool Booking System{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Swimming Pool Booking System</h2>
+
+    <section>
+        <h3>Available Classes</h3>
+        <ul>
+            {% for class in classes %}
+                <li>{{ class.name }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h3>Bookings</h3>
+        <ul>
+            {% for booking in bookings %}
+                <li>{{ booking.user.username }} - {{ booking.date_time }} - {{ booking.selected_class }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
