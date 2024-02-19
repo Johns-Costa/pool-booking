@@ -1,9 +1,9 @@
 from django import forms
-from .models import Booking, Class  # Import both Booking and Class models
+from .models import Booking, Class
 
 class BookingForm(forms.ModelForm):
-    selected_class = forms.ModelChoiceField(queryset=Class.objects.all())  # Move queryset definition here
+    selected_class = forms.ModelChoiceField(queryset=Class.objects.all())
 
     class Meta:
         model = Booking
-        fields = ['description', 'date_time', 'selected_class']
+        fields = ['selected_class', 'date_time', 'user', 'description'] 

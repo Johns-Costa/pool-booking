@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Cancel Class - Swimming Pool Booking System{% endblock %}
+
+{% block content %}
+    <h2>Delete Class</h2>
+    <p>Are you sure you want to delete the class "{{ class.name }}" permanently?</p>
+    <form method="post" action="{% url 'cancel_class' class.id %}">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'manage_classes' %}">No, Go Back</a>
+    </form>
+{% endblock %}

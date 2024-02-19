@@ -1,12 +1,38 @@
+<!-- booking/templates/booking/manage_classes.html -->
 {% extends 'base.html' %}
 
 {% block title %}Manage Classes - Swimming Pool Booking System{% endblock %}
 
 {% block content %}
     <h2>Manage Classes</h2>
-    <ul>
-        {% for class in classes %}
-            <li>{{ class.name }}</li>
-        {% endfor %}
-    </ul>
+
+    <section>
+        <h3>Existing Classes</h3>
+        <ul>
+            {% for class in classes %}
+                <li>
+                    {{ class.name }} - {{ class.description }}
+                    {% if not class.canceled %}
+                        <a href="{% url 'cancel_class' class.id %}">Cancel</a>
+                    {% else %}
+                        <span class="text-danger">Canceled</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h3>Add New Class</h3>
+        <form method="post" action="{% url 'add_class' %}">
+            {% csrf_token %}
+            <label for="class_name">Class Name:</label>
+            <input type="text" id="class_name" name="class_name" required>
+            
+            <label for="class_description">Class Description:</label>
+            <textarea id="class_description" name="class_description" required></textarea>
+
+            <button type="submit">Add Class</button>
+        </form>
+    </section>
 {% endblock %}

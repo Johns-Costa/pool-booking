@@ -1,4 +1,7 @@
 {% load static %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +12,6 @@
     <link rel="stylesheet" href="{% static 'booking/style.css' %}">
     <link rel="stylesheet" href="{% static 'booking/layout.css' %}">
     <link rel="stylesheet" href="{% static 'booking/normalize.css' %}">
-    <!-- Add any additional stylesheets or scripts here -->
 </head>
 <body>
     <header>
@@ -22,7 +24,19 @@
                     {% if user.is_staff %}
                         <li><a href="{% url 'manage_classes' %}">Manage Classes</a></li>
                     {% endif %}
-                    <!-- Add additional navigation links as needed -->
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="{% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="{% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li>
+                        <a class="{% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -37,7 +51,7 @@
     <footer>
         <div class="container">
             <!-- Add footer content here -->
-            &copy; 2023 Swimming Pool Booking System
+            &copy; 2024 Swimming Pool Booking System
         </div>
     </footer>
 </body>

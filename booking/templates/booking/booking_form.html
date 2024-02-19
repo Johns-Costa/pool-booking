@@ -23,4 +23,10 @@
         </div>
         <button type="submit" class="btn btn-primary">Book Now</button>
     </form>
+    <script>
+        // JavaScript to set a minimum date for date_time
+        var currentDate = new Date();
+        var currentDateString = currentDate.toISOString().slice(0, -8);  // Format as YYYY-MM-DDTHH:mm
+        document.getElementById('date_time').min = currentDateString;
+    </script>
 {% endblock %}
