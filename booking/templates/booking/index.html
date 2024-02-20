@@ -1,25 +1,46 @@
+<!-- booking/templates/booking/index.html -->
 {% extends 'base.html' %}
 
-{% block title %}Home - Swimming Pool Booking System{% endblock %}
+{% block title %}Swimming Pool Booking System{% endblock %}
 
 {% block content %}
     <h2>Welcome to the Swimming Pool Booking System</h2>
 
-    <section>
         <h3>Available Classes</h3>
+    {% if classes %}
         <ul>
             {% for class in classes %}
                 <li>{{ class.name }}</li>
             {% endfor %}
         </ul>
-    </section>
+    {% else %}
+        <p> - No classes available at the moment. Check back later!</p>
+    {% endif %}
 
-    <section>
-        <h3>Bookings</h3>
-        <ul>
+        <h3>Your Bookings</h3>
+    {% if bookings %}
+    <h1>Booking List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Date and Time</th>
+                <th>Selected Class</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for booking in bookings %}
-                <li>{{ booking.user.username }} - {{ booking.date_time }} - {{ booking.selected_class }}</li>
+                <tr>
+                    <td>{{ booking.user.username }}</td>
+                    <td>{{ booking.date_time }}</td>
+                    <td>{{ booking.selected_class }}</td>
+                    <td>{{ booking.get_time_display }}</td>
+                </tr>
             {% endfor %}
-        </ul>
-    </section>
+        </tbody>
+    </table>
+    {% else %}
+        <p> - No bookings yet. Start booking your classes!</p>
+    {% endif %}
 {% endblock %}

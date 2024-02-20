@@ -8,6 +8,7 @@
 
     <section>
         <h3>Existing Classes</h3>
+        {% if classes %}
         <ul>
             {% for class in classes %}
                 <li>
@@ -18,7 +19,10 @@
                         <span class="text-danger">Canceled</span>
                     {% endif %}
                 </li>
-            {% endfor %}
+        {% endfor %}
+        {% else %}
+        <p> - No classes available at the moment. Create a class!</p>
+        {% endif %}
         </ul>
     </section>
 

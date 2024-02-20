@@ -6,4 +6,5 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ['selected_class', 'date_time', 'user', 'description'] 
+        fields = ['selected_class','date_time', 'time', 'description'] 
+        widgets = {'date_time': forms.DateTimeInput(attrs={'type': 'datetime-local'}),}

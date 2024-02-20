@@ -19,16 +19,21 @@ def index(request):
 def book_class(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
-        if form.is_valid():
+        print(form.instance.date_time)
+        print(request.user)
+        try:
+            form.is_valid()
             # Set the user before saving the form
             form.instance.user = request.user
             form.save()
             messages.success(request, 'Booking successful!')
             return redirect('index')
-        else:
+        except ValueError as e:
+            print(e)
             messages.error(request, 'Form is not valid. Please check your inputs.')
     else:
         form = BookingForm()
+        messages.error(request, 'Form is not valid. message too long')
 
     return render(request, 'booking/booking_form.html', {'form': form})
 
