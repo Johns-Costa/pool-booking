@@ -13,12 +13,14 @@
             {% for class in classes %}
                 <li>
                     {{ class.name }} - {{ class.description }}
+                    <br>
                     {% if not class.canceled %}
-                        <a href="{% url 'cancel_class' class.id %}">Cancel</a>
+                        <a href="{% url 'cancel_class' class.id %}" class="btn btn-warning" style="--bs-btn-font-size: .5rem;">Cancel</a>
                     {% else %}
                         <span class="text-danger">Canceled</span>
                     {% endif %}
                 </li>
+                <br>
         {% endfor %}
         {% else %}
         <p> - No classes available at the moment. Create a class!</p>
@@ -34,9 +36,8 @@
             <input type="text" id="class_name" name="class_name" required>
             
             <label for="class_description">Class Description:</label>
-            <textarea id="class_description" name="class_description" required></textarea>
-
-            <button type="submit">Add Class</button>
+            <input id="class_description" name="class_description" required>
+            <button type="submit" class="btn btn-success btn-sm">Add Class</button>
         </form>
     </section>
 {% endblock %}
