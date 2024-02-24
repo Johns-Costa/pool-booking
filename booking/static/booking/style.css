@@ -1,44 +1,19 @@
 /* --------- Global style */
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    min-width: 700px;
-    margin: 0;
-    text-align: center;
-    font-family: cursive;
-    color: #ffff;
-    font-size: 150%;
-    background-color: #2F4F4F;
-    line-height: 0.7em;
-    height: fit-content;
+    font-family: 'Arial', sans-serif; 
+    --bs-body-bg: #209CEE;
+    color: #1103a6;
 }
 
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    --bs-body-bg: #209CEE !important;
+main { 
+    padding-top: 50px;
 }
 
-header {
-    background-color: #8cc4e9;
-    padding: 1em;
-    color: white;
-    text-align: center;
-}
+.navbar { --bs-navbar-bg: #209CEE;}
 
-.navbar { --bs-navbar-bg: #209CEE !important;}
 
-main {
-    background-color: #8cc4e9;
-    padding: 20px;
-}
-
-.table_custom { --bs-table-bg: transparent !important; }
+.table_custom { --bs-table-bg: transparent; }
 
 /* -------- footer */
 
