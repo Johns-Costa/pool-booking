@@ -1,38 +1,73 @@
+/* --------- Global style */
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; 
+    --bs-body-bg: #209CEE;
+    color: #1103a6;
 }
 
-header {
-    background-color: #4CAF50;
-    padding: 1em;
-    color: white;
-    text-align: center;
+main { 
+    padding-top: 50px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+.navbar { --bs-navbar-bg: #209CEE;}
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
 
-main {
-    padding: 20px;
-}
+.table_custom { --bs-table-bg: transparent; }
+
+/* -------- footer */
 
 footer {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: #209CEE;
+    margin: 0;
+    position: sticky;
+
+    padding: 20px 0;
+
 }
+
+footer p {
+    background-color: #209CEE;
+    margin-top: auto;
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+
+}
+
+
+footer p a {
+    color: white;
+}
+
+.social-networks {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.social-networks>li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 110%;
+    margin: 0;
+    padding: 1.5% 1.5%;
+    color: white;
+}
+
+
+
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .layer1 {
+    background-image: url('./waves.svg');
+  }
