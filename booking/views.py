@@ -67,3 +67,28 @@ def cancel_class(request, class_id):
         return redirect('manage_classes')
 
     return render(request, 'booking/cancel_class.html', {'class': my_class})
+
+@login_required
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirect to the main page after editing
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(request, 'booking/edit_booking.html', {'form': form})
+
+@login_required
+def cancel_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        # Implement logic to handle cancellation (e.g., set a 'canceled' flag)
+        booking.delete()  # This is just an example; adjust based on your requirements
+        return redirect('index')  # Redirect to the main page after cancellation
+
+    return render(request, 'booking/cancel_booking.html', {'booking': booking})

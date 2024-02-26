@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Welcome to the Swimming Pool Booking System</h2>
-
-        <h3>Available Classes</h3>
+{% if user.is_authenticated %}
+<h4>Welcome to the Swimming Pool Booking System <u>{{ user }}!</u></h4>
+{% endif %}
+<hr>
+        <h3>Available Classes:</h3>
     {% if classes %}
         <ul>
             {% for class in classes %}
@@ -14,9 +16,8 @@
         <p> - No classes available at the moment. Check back later!</p>
     {% endif %}
 
-        <h3>Your Bookings</h3>
+        <h3>Bookings:</h3>
     {% if bookings %}
-    <h1>Booking List</h1>
     <table class="table table_custom">
         <thead>
             <tr>
@@ -24,6 +25,7 @@
                 <th>Date and Time</th>
                 <th>Selected Class</th>
                 <th>Time</th>
+                <th>Edit/Change</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,18 @@
                     <td>{{ booking.date_time }}</td>
                     <td>{{ booking.selected_class }}</td>
                     <td>{{ booking.get_time_display }}</td>
+                    {% if user.is_authenticated and booking.user == user %}
+                    <td><div class="d-grid gap-2 d-md-block">
+                        <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
+                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" 
+                        href="{% url 'edit_booking' booking.id %}">Edit</a>
+                        <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
+                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" 
+                        href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+                      </div></td>
+                    {% else %}
+                    <td>---NA---</td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
