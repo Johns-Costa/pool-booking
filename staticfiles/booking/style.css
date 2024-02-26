@@ -7,13 +7,31 @@ body {
 }
 
 main { 
-    padding-top: 50px;
+    padding: 20px;
 }
 
-.navbar { --bs-navbar-bg: #209CEE;}
+hr {
+    border-top: 3px solid white;
+    padding-bottom: 20px;
+    opacity: 1.0;
+}
+
+.navbar { 
+    --bs-navbar-bg: #209CEE;
+    --bs-navbar-color: #1103a6;
+}
+
+.navbar-brand{ 
+    --bs-navbar-brand-color: #1103a6;
+}
 
 
-.table_custom { --bs-table-bg: transparent; }
+
+
+.table_custom { 
+    --bs-table-bg: transparent;
+    --bs-table-color: #1103a6; 
+}
 
 /* -------- footer */
 
