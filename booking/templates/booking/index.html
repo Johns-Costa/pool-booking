@@ -2,22 +2,25 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h4>Welcome to the Swimming Pool Booking System <u>{{ user }}!</u></h4>
+<h5>Welcome to the Swimming Pool Booking System <u>{{ user }}!</u></h5>
 {% endif %}
 <hr>
-        <h3>Available Classes:</h3>
-    {% if classes %}
-        <ul>
-            {% for class in classes %}
-                <li>{{ class.name }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p> - No classes available at the moment. Check back later!</p>
-    {% endif %}
-
-        <h3>Bookings:</h3>
-    {% if bookings %}
+<h3>Available Classes:</h3>
+<div class="container-responsive">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 p-0">
+        {% for class in classes %}
+        <div class="col p-0">
+            <div class="p-3 class-border d-flex flex-column h-100 m-0">
+                <span class="fs-5 text-center">{{ class.name }} - </span>
+                <span class="text-center lh-1">{{ class.description }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<h3>Bookings:</h3>
+{% if bookings %}
+<div class="table-responsive">
     <table class="table table_custom">
         <thead>
             <tr>
@@ -30,28 +33,31 @@
         </thead>
         <tbody>
             {% for booking in bookings %}
-                <tr>
-                    <td>{{ booking.user.username }}</td>
-                    <td>{{ booking.date_time }}</td>
-                    <td>{{ booking.selected_class }}</td>
-                    <td>{{ booking.get_time_display }}</td>
-                    {% if user.is_authenticated and booking.user == user %}
-                    <td><div class="d-grid gap-2 d-md-block">
+            <tr>
+                <td>{{ booking.user.username }}</td>
+                <td>{{ booking.date_time }}</td>
+                <td>{{ booking.selected_class }}</td>
+                <td>{{ booking.get_time_display }}</td>
+                {% if user.is_authenticated and booking.user == user %}
+                <td>
+                    <div class="d-grid gap-2 d-md-block">
                         <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
-                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" 
-                        href="{% url 'edit_booking' booking.id %}">Edit</a>
+                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            href="{% url 'edit_booking' booking.id %}">Edit</a>
                         <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
-                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" 
-                        href="{% url 'cancel_booking' booking.id %}">Cancel</a>
-                      </div></td>
-                    {% else %}
-                    <td>---NA---</td>
-                    {% endif %}
-                </tr>
+                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+                    </div>
+                </td>
+                {% else %}
+                <td>---NA---</td>
+                {% endif %}
+            </tr>
             {% endfor %}
         </tbody>
     </table>
-    {% else %}
-        <p> - No bookings yet. Start booking your classes!</p>
-    {% endif %}
+</div>
+{% else %}
+<p> - No bookings yet. Start booking your classes!</p>
+{% endif %}
 {% endblock %}

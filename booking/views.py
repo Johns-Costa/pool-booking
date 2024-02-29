@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -19,8 +20,6 @@ def index(request):
 def book_class(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
-        print(form.instance.date_time)
-        print(request.user)
         try:
             form.is_valid()
             # Set the user before saving the form
@@ -28,12 +27,12 @@ def book_class(request):
             form.save()
             messages.success(request, 'Booking successful!')
             return redirect('index')
+        except ValidationError as e:
+                messages.error(request, str('Cannot book classes in the past.'))
         except ValueError as e:
-            print(e)
             messages.error(request, 'Form is not valid. Please check your inputs.')
     else:
         form = BookingForm()
-        messages.error(request, 'Form is not valid. message too long')
 
     return render(request, 'booking/booking_form.html', {'form': form})
 

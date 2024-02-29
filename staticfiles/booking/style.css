@@ -1,12 +1,17 @@
-/* --------- Global style */
-
-body {
-    font-family: 'Arial', sans-serif; 
-    --bs-body-bg: #209CEE;
-    color: #1103a6;
+header{
+    background-color: #209CEE;
+    margin: 0;
+    padding: 0;
 }
 
-main { 
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    --bs-body-bg: #209CEE;
+    color: #1103a6;
+    width: 100%;
+}
+
+main {
     padding: 20px;
 }
 
@@ -16,21 +21,55 @@ hr {
     opacity: 1.0;
 }
 
-.navbar { 
-    --bs-navbar-bg: #209CEE;
-    --bs-navbar-color: #1103a6;
+.navbar {
+    --bs-body-bg: #209CEE;
+    --bs-navbar-color: #ffffff;
+
+    
 }
 
-.navbar-brand{ 
-    --bs-navbar-brand-color: #1103a6;
+.navbar a:hover {
+    color: #1103a6;
 }
 
 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
+.navbar-toggler {
+    border: 2px solid white;
+}
 
-.table_custom { 
+.navbar-brand {
+    color: white;
+    font-size: 200%;
+    font-family: 'Montserat', 'Arial', sans-serif;
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserat', 'Arial', sans-serif;
+}
+
+h3 {
+    margin: 10px;
+
+}
+
+.class-border {
+    border: 1px solid #ffffff;
+}
+
+.table_custom {
     --bs-table-bg: transparent;
-    --bs-table-color: #1103a6; 
+    --bs-table-color: #1103a6;
+    width: 100%;
 }
 
 /* -------- footer */
@@ -77,6 +116,7 @@ footer p a {
 }
 
 
+/* background */
 
 .spacer {
     aspect-ratio: 960/300;
@@ -84,8 +124,9 @@ footer p a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  }
+}
 
-  .layer1 {
+.layer1 {
     background-image: url('./waves.svg');
-  }
+    width: 100%;
+}

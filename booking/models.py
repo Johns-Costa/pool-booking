@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-
+from django.utils import timezone
 # Time periods variations
 TIME_PERIODS = (
     (0, '9:00-9:45'),
@@ -33,5 +33,12 @@ class Booking(models.Model):
     time = models.IntegerField(choices=TIME_PERIODS, default=0, validators=[validate_time_period])
     selected_class = models.ForeignKey(Class, on_delete=models.CASCADE, null=True, blank=True)
 
-    def __str__(self):
-        return f"{self.user.username} - {self.date_time} - {self.selected_class} - {self.time}"
+    def save(self, *args, **kwargs):
+        # Convert timezone.now() to a date object
+        current_date = timezone.now().date()
+
+        # Check if the selected date is in the past
+        if self.date_time < current_date:
+            raise ValidationError("Cannot book classes in the past.")
+
+        super().save(*args, **kwargs)
