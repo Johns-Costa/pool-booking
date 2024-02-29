@@ -4,7 +4,15 @@
 
 {% block content %}
     <h2>Manage Classes</h2>
-
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        {% if 'manage_classes' or 'cancel_class' in message.tags %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
     <section>
         <h3>Existing Classes</h3>
         {% if classes %}

@@ -7,7 +7,7 @@
     <p>Are you sure you want to delete the class "{{ class.name }}" permanently?</p>
     <form method="post" action="{% url 'cancel_class' class.id %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-success">Yes, Delete</button>
+        <button type="submit" class="btn btn-primary">Yes, Delete</button>
         <a type="button" class="btn btn-danger" href="{% url 'manage_classes' %}">No, Go Back</a>
     </form>
 {% endblock %}

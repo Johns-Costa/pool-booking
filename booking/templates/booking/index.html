@@ -5,6 +5,15 @@
 <h5>Welcome to the Swimming Pool Booking System <u>{{ user }}!</u></h5>
 {% endif %}
 <hr>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+    {% if 'cancel_booking' or 'edit_booking' in message.tags %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
 <h3>Available Classes:</h3>
 <div class="container-responsive">
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 p-0">
