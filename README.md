@@ -25,5 +25,7 @@ Developed for everyone that wants to have some fun at a swimming pool. The app i
 The app was developed for eveyone who enjoys sports and water. 
   * Staff members: can add or telete classes. Check bookings, see users specific booking details and book classes for themselves.
   * Users: can book, edit and cancel classes. Either for themselves or for someone else (their kids for example).
-  * User's familly or friends: can attend to classes can attend classes booked by a User.
+  * User's familly or friends: can attend to classes booked by a User.
+
+
 
