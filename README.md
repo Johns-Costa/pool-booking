@@ -1,39 +1,29 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+ # AquaFit - pool
 
-Welcome,
+Live Version: [AquaFit - pool](https://pool-bookin-system-c1efa7b0c18f.herokuapp.com/)
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Repository: [GitHub Repo](https://github.com/Johns-Costa/pool-booking)
 
-## Codeanywhere Reminders
+The app is developed by [João Costa](https://github.com/Johns-Costa).
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+![AquaFit - pool](documentation/features/home_page.png)
 
-`python3 -m http.server`
+## About
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+[AquaFit - pool](https://pool-bookin-system-c1efa7b0c18f.herokuapp.com/) is a swimming pool class booking and management application. The main goal of this app is to help the user book classes and the staff manage new and old classes.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## User Experience Design
 
-`http_server`
+### Strategy
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Developed for everyone that wants to have some fun at a swimming pool. The app is designed to be easy to use and intuitive. The main goal of the app is to help anyone interested in having classes in the swiming pool to be able to book. the staff members can have it easy while adding new classes or deleting obsolete ones. This has the goal of increasing the efficiency of the pool management.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Target Audience
 
-To log into the Heroku toolbelt CLI:
+The app was developed for eveyone who enjoys sports and water. 
+  * Staff members: can add or telete classes. Check bookings, see users specific booking details and book classes for themselves.
+  * Users: can book, edit and cancel classes. Either for themselves or for someone else (their kids for example).
+  * User's familly or friends: can attend to classes can attend classes booked by a User.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!

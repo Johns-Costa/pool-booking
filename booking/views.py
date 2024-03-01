@@ -48,7 +48,15 @@ def book_class(request):
 @staff_member_required
 def manage_classes(request):
     classes = Class.objects.all()
-    return render(request, 'booking/manage_classes.html', {'classes': classes})
+    bookings = Booking.objects.all()
+
+    context = {
+        'classes': classes,
+        'bookings': bookings,
+    }
+
+    return render(request, 'booking/manage_classes.html', context)
+
 
 @staff_member_required
 def add_class(request):

@@ -3,48 +3,82 @@
 {% block title %}Manage Classes - Swimming Pool Booking System{% endblock %}
 
 {% block content %}
-    <h2>Manage Classes</h2>
-    {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-        {% if 'manage_classes' or 'cancel_class' in message.tags %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+<h2>Manage Classes</h2>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if 'manage_classes' or 'cancel_class' in message.tags %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
         {% endif %}
-      {% endfor %}
-    </ul>
-  {% endif %}
-    <section>
-        <h3>Existing Classes</h3>
-        {% if classes %}
-        <ul>
-            {% for class in classes %}
+        {% endfor %}
+</ul>
+{% endif %}
+<section>
+    <div class="row">
+        <div class="col">
+            <h3>Existing Classes</h3>
+            {% if classes %}
+            <ul>
+                {% for class in classes %}
                 <li>
                     {{ class.name }} - {{ class.description }}
                     <br>
                     {% if not class.canceled %}
-                        <a href="{% url 'cancel_class' class.id %}" class="btn btn-warning" style="--bs-btn-font-size: .5rem;">Cancel</a>
+                    <a href="{% url 'cancel_class' class.id %}" class="btn btn-warning"
+                        style="--bs-btn-font-size: .5rem;">Cancel</a>
                     {% else %}
-                        <span class="text-danger">Canceled</span>
+                    <span class="text-danger">Canceled</span>
                     {% endif %}
                 </li>
                 <br>
-        {% endfor %}
-        {% else %}
-        <p> - No classes available at the moment. Create a class!</p>
-        {% endif %}
-        </ul>
-    </section>
+                {% endfor %}
+                {% else %}
+                <p> - No classes available at the moment. Create a class!</p>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col">
+            {% if bookings %}
+            <div class="table-responsive">
+                <table class="table table_custom">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Date and Time</th>
+                            <th>Selected Class</th>
+                            <th>Time</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.user.username }}</td>
+                            <td>{{ booking.date_time }}</td>
+                            <td>{{ booking.selected_class }}</td>
+                            <td>{{ booking.get_time_display }}</td>
+                            <td>{{ booking.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p> - No bookings yet. Start booking your classes!</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<section>
+    <h3>Add New Class</h3>
+    <form method="post" action="{% url 'add_class' %}">
+        {% csrf_token %}
+        <label for="class_name">Class Name:</label>
+        <input type="text" id="class_name" name="class_name" required>
 
-    <section>
-        <h3>Add New Class</h3>
-        <form method="post" action="{% url 'add_class' %}">
-            {% csrf_token %}
-            <label for="class_name">Class Name:</label>
-            <input type="text" id="class_name" name="class_name" required>
-            
-            <label for="class_description">Class Description:</label>
-            <input id="class_description" name="class_description" required>
-            <button type="submit" class="btn btn-success btn-sm">Add Class</button>
-        </form>
-    </section>
+        <label for="class_description">Class Description:</label>
+        <input id="class_description" name="class_description" required>
+        <button type="submit" class="btn btn-success btn-sm">Add Class</button>
+    </form>
+</section>
 {% endblock %}
