@@ -2,16 +2,16 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h5>Welcome to the Swimming Pool Booking System <u>{{ user }}!</u></h5>
+<h5>Welcome to the Swimming Pool Booking System <strong>{{ user }}!</strong></h5>
 {% endif %}
 <hr>
 {% if messages %}
 <ul class="messages">
-  {% for message in messages %}
+    {% for message in messages %}
     {% if 'cancel_booking' or 'edit_booking' in message.tags %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endif %}
-  {% endfor %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endif %}
+        {% endfor %}
 </ul>
 {% endif %}
 <h3>Available Classes:</h3>
@@ -27,15 +27,15 @@
         {% endfor %}
     </div>
 </div>
-<h3>Bookings:</h3>
+<h3>My Bookings:</h3>
 {% if bookings %}
 <div class="table-responsive">
     <table class="table table_custom">
         <thead>
             <tr>
                 <th>User</th>
-                <th>Date and Time</th>
-                <th>Selected Class</th>
+                <th>Class</th>
+                <th>Date</th>
                 <th>Time</th>
                 <th>Edit/Change</th>
             </tr>
@@ -44,17 +44,17 @@
             {% for booking in bookings %}
             <tr>
                 <td>{{ booking.user.username }}</td>
-                <td>{{ booking.date_time }}</td>
                 <td>{{ booking.selected_class }}</td>
+                <td>{{ booking.date_time }}</td>               
                 <td>{{ booking.get_time_display }}</td>
-                {% if user.is_authenticated and booking.user == user %}
+                {% if booking.date_time >= current_datetime %}
                 <td>
                     <div class="d-grid gap-2 d-md-block">
                         <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
-                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                             href="{% url 'edit_booking' booking.id %}">Edit</a>
-                        <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
-                        --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                        <a class="btn btn-primary " style="--bs-btn-padding-y: .25rem; 
+                            --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                             href="{% url 'cancel_booking' booking.id %}">Cancel</a>
                     </div>
                 </td>
@@ -63,10 +63,11 @@
                 {% endif %}
             </tr>
             {% endfor %}
+
         </tbody>
     </table>
 </div>
 {% else %}
-<p> - No bookings yet. Start booking your classes!</p>
+<p> - No bookings yet. <a class="link" href="{% url 'book_class' %}"><strong>Start booking your classes!</strong></a>Start booking your classes!</p>
 {% endif %}
 {% endblock %}

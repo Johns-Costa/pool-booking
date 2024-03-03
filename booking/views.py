@@ -7,23 +7,34 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+
 # Create your views here.
+
+from django.shortcuts import render
+from django.utils import timezone
 
 @login_required
 def index(request):
     # Exclude canceled classes from the queryset
     classes = Class.objects.filter(canceled=False)
-    bookings = Booking.objects.all()
-    bookings = Booking.objects.order_by('date_time')
-    current_datetime = timezone.now()
-    bookings = Booking.objects.filter(date_time__gte=current_datetime)
-    bookings_to_cancel = Booking.objects.filter(date_time__lt=current_datetime)
-    
-    # Iterate through the filtered bookings and delete them
-    for booking in bookings_to_cancel:
-        booking.delete()
-    
-    return render(request, 'booking/index.html', {'classes': classes, 'bookings': bookings})
+
+    # Get bookings for the currently logged-in user
+    bookings = Booking.objects.filter(user=request.user)
+
+    # Order bookings by date and time
+    bookings = bookings.order_by('date_time')
+
+    # Get the current datetime
+    current_datetime = timezone.now().date()
+
+    context = {
+        'classes': classes,
+        'bookings': bookings,
+        'current_datetime': current_datetime,
+    }
+
+    return render(request, 'booking/index.html', context)
+
 
 @login_required
 def book_class(request):
@@ -48,11 +59,19 @@ def book_class(request):
 @staff_member_required
 def manage_classes(request):
     classes = Class.objects.all()
-    bookings = Booking.objects.all()
+    # Get the current datetime
+    current_datetime = timezone.now().date()
+
+    bookings = Booking.objects.filter(date_time__gte=current_datetime)
+
+    # Order bookings by date and time
+    bookings = bookings.order_by('date_time')
+
 
     context = {
         'classes': classes,
         'bookings': bookings,
+        'current_datetime': current_datetime,
     }
 
     return render(request, 'booking/manage_classes.html', context)

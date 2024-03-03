@@ -14,8 +14,8 @@
 </ul>
 {% endif %}
 <section>
-    <div class="row">
-        <div class="col">
+    <div class="row ">
+        <div class="col-lg-6 col-md-12">
             <h3>Existing Classes</h3>
             {% if classes %}
             <ul>
@@ -37,15 +37,16 @@
                 {% endif %}
             </ul>
         </div>
-        <div class="col">
+        <div class="col-lg-6 col-md-12">
+            <h3>All bookings</h3>
             {% if bookings %}
             <div class="table-responsive">
                 <table class="table table_custom">
                     <thead>
                         <tr>
                             <th>User</th>
-                            <th>Date and Time</th>
-                            <th>Selected Class</th>
+                            <th>Class</th>
+                            <th>Date</th>                            
                             <th>Time</th>
                             <th>Description</th>
                         </tr>
@@ -54,8 +55,8 @@
                         {% for booking in bookings %}
                         <tr>
                             <td>{{ booking.user.username }}</td>
-                            <td>{{ booking.date_time }}</td>
                             <td>{{ booking.selected_class }}</td>
+                            <td>{{ booking.date_time }}</td>                            
                             <td>{{ booking.get_time_display }}</td>
                             <td>{{ booking.description }}</td>
                         </tr>
@@ -64,7 +65,7 @@
                 </table>
             </div>
             {% else %}
-            <p> - No bookings yet. Start booking your classes!</p>
+            <p> - No bookings</p>
             {% endif %}
         </div>
     </div>

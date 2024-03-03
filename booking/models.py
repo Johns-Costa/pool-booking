@@ -41,4 +41,4 @@ class Booking(models.Model):
         if self.date_time < current_date:
             raise ValidationError("Cannot book classes in the past.")
 
-        super().save(*args, **kwargs)
+        super().save(*args, **kwargs) 
