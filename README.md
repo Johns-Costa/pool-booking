@@ -7,7 +7,7 @@ Repository: [GitHub Repo](https://github.com/Johns-Costa/pool-booking)
 
 The app is developed by [João Costa](https://github.com/Johns-Costa).
 
-![AquaFit - pool](documentation/features/home_page.png)
+![AquaFit - pool](documentation/features/home_page/home_page.png)
 
 ## About
 
@@ -17,7 +17,7 @@ The app is developed by [João Costa](https://github.com/Johns-Costa).
 
 ### Strategy
 
-Developed for everyone that wants to have some fun at a swimming pool. The app is designed to be easy to use and intuitive. The main goal of the app is to help anyone interested in having classes in the swiming pool to be able to book. the staff members can have it easy while adding new classes or deleting obsolete ones. This has the goal of increasing the efficiency of the pool management.
+Developed for everyone that wants to have some fun at a swimming pool. The app is designed to be easy to use and intuitive. The main goal of the app is to help anyone interested in having classes in the swiming pool to be able to book. the staff members can have it easy while adding new classes or deleting obsolete ones. This app has the goal of increasing the efficiency of the pool management.
 
 
 ### Target Audience
@@ -144,7 +144,7 @@ The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 
 1. **Class**
 
-Created in order to be able to make new classes available
+Created in order for staff members to be able to make new classes available a delete obsolete ones
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -178,3 +178,43 @@ Created to allow the booking of classes
         (7, '18:00-18:45'),
     )
 ```
+
+---
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
+
+
+---
+
+
+## Deployment
+
+
+- The app was deployed to [Heroku](https://www.heroku.com/).
+- The database was deployed to [ElephantSQL](https://www.elephantsql.com/).
+
+- The app can be reached by the [link](https://pool-bookin-system-c1efa7b0c18f.herokuapp.com/).
+
+Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-related documentation.
+
+---
+
+## Credits
+
+- [GitHub](https://github.com/) for giving the idea of the project's design.
+- [Django](https://www.djangoproject.com/) for the framework.
+- [ElephantSQL](https://www.elephantsql.com/): for the free hosting of the database.
+- [Font awesome](https://fontawesome.com/): for the free access to icons.
+- [Heroku](https://www.heroku.com/): for the free hosting of the website.
+- [Postgresql](https://www.postgresql.org/): for providing a free database.
+- [Haikei](https://haikei.app/): for providing a free svg brackground images.
+
+
+---
+
+## Acknowledgments
+
+
+- [Iuliia Konovalova](https://github.com/IuliiaKonovalova) my mentor, was of a great support. Helping me figure out and mature the idea for this project.
+- My wife Luciana for all the support and keeping the family together.
