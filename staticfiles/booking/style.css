@@ -73,6 +73,13 @@ h3 {
     width: 100%;
 }
 
+.success {
+    color: #00ff00 !important;
+}
+
+.error {
+    color: #ff0000 !important;
+}
 /* -------- footer */
 
 footer {
