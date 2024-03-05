@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Cancel Booking</h1>
-    <form method="post" action="">
+    <form method="post">
         {% csrf_token %}
         <p>Are you sure you want to cancel this booking?</p>
         <button type="submit" class="btn btn-primary">Cancel Booking</button>

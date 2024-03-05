@@ -20,17 +20,17 @@
             {% if classes %}
             <ul>
                 {% for class in classes %}
-                <li>
+                <li class="classes">
                     {{ class.name }} - {{ class.description }}
                     <br>
                     {% if not class.canceled %}
                     <a href="{% url 'cancel_class' class.id %}" class="btn btn-warning"
-                        style="--bs-btn-font-size: .5rem;">Cancel</a>
+                        style="--bs-btn-font-size: .5rem;">Delete</a>
                     {% else %}
                     <span class="text-danger">Canceled</span>
                     {% endif %}
+                    <p> </p>
                 </li>
-                <br>
                 {% endfor %}
                 {% else %}
                 <p> - No classes available at the moment. Create a class!</p>
@@ -56,7 +56,7 @@
                         <tr>
                             <td>{{ booking.user.username }}</td>
                             <td>{{ booking.selected_class }}</td>
-                            <td>{{ booking.date_time }}</td>                            
+                            <td>{{ booking.date }}</td>                            
                             <td>{{ booking.get_time_display }}</td>
                             <td>{{ booking.description }}</td>
                         </tr>

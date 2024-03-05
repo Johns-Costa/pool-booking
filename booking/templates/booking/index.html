@@ -8,10 +8,10 @@
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    {% if 'cancel_booking' or 'edit_booking' in message.tags %}
-    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-        {% endif %}
-        {% endfor %}
+    {% if 'cancel_booking' in message.tags or 'edit_booking' in message.tags %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endif %}
+    {% endfor %}
 </ul>
 {% endif %}
 <h3>Available Classes:</h3>
@@ -45,9 +45,9 @@
             <tr>
                 <td>{{ booking.user.username }}</td>
                 <td>{{ booking.selected_class }}</td>
-                <td>{{ booking.date_time }}</td>               
+                <td>{{ booking.date }}</td>
                 <td>{{ booking.get_time_display }}</td>
-                {% if booking.date_time >= current_datetime %}
+                {% if booking.date >= current_datetime %}
                 <td>
                     <div class="d-grid gap-2 d-md-block">
                         <a class="btn btn-primary" style="--bs-btn-padding-y: .25rem; 
@@ -68,6 +68,7 @@
     </table>
 </div>
 {% else %}
-<p> - No bookings yet. <a class="link" href="{% url 'book_class' %}"><strong>Start booking your classes!</strong></a>Start booking your classes!</p>
+<p> - No bookings yet. <a class="link" href="{% url 'book_class' %}"><strong>Start booking your
+            classes!</strong></a>Start booking your classes!</p>
 {% endif %}
 {% endblock %}
