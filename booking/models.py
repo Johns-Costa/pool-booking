@@ -17,6 +17,9 @@ TIME_PERIODS = (
 
 
 class Class(models.Model):
+    """
+    Represents a class available for booking in the Swimming Pool Booking System.
+    """
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField(null=True)
     canceled = models.BooleanField(default=False)
@@ -31,6 +34,9 @@ def validate_time_period(value):
 
 
 class Booking(models.Model):
+    """
+    Represents a user's booking for a specific class in the Swimming Pool Booking System.
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              null=True, blank=True)
     description = models.CharField(max_length=50)
@@ -41,6 +47,9 @@ class Booking(models.Model):
                                        null=True, blank=True)
 
     def save(self, *args, **kwargs):
+        """
+        Custom save method to validate and prevent booking classes in the past.
+        """
         # Convert timezone.now() to a date object
         current_date = timezone.now().date()
 

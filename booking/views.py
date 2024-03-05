@@ -16,6 +16,22 @@ from django.utils import timezone
 
 @login_required
 def index(request):
+    """
+    Displays available and booked classes for the logged-in user.
+
+    **Context**
+
+    ``classes``
+        All available classes excluding canceled ones.
+    ``bookings``
+        Bookings made by the logged-in user.
+    ``current_datetime``
+        Current date and time.
+
+    **Template:**
+
+    :template:`booking/index.html`
+    """
     # Exclude canceled classes from the queryset
     classes = Class.objects.filter(canceled=False)
 
@@ -39,6 +55,18 @@ def index(request):
 
 @login_required
 def book_class(request):
+    """
+    Handles the booking form submission and displays booking-related messages.
+
+    **Context**
+
+    ``form``
+        An instance of :form:`booking.BookingForm`.
+
+    **Template:**
+
+    :template:`booking/booking_form.html`
+    """
     if request.method == 'POST':
         form = BookingForm(request.POST)
         try:
@@ -64,6 +92,22 @@ def book_class(request):
 
 @staff_member_required
 def manage_classes(request):
+    """
+    Displays all classes and their bookings for staff members.
+
+    **Context**
+
+    ``classes``
+        All available classes.
+    ``bookings``
+        All bookings for available classes.
+    ``current_datetime``
+        Current date.
+
+    **Template:**
+
+    :template:`booking/manage_classes.html`
+    """
     classes = Class.objects.all()
     # Get the current datetime
     current_datetime = timezone.now().date()
@@ -84,6 +128,13 @@ def manage_classes(request):
 
 @staff_member_required
 def add_class(request):
+    """
+    Handles the addition of a new class by staff members.
+
+    **Template:**
+
+    Redirects to the 'manage_classes' view on success.
+    """
     if request.method == 'POST':
         class_name = request.POST.get('class_name')
         class_description = request.POST.get('class_description')
@@ -104,6 +155,18 @@ def add_class(request):
 
 @staff_member_required
 def cancel_class(request, class_id):
+    """
+    Handles the cancellation of a class by staff members.
+
+    **Context**
+
+    ``class``
+        The class to be canceled.
+
+    **Template:**
+
+    :template:`booking/cancel_class.html`
+    """
     my_class = get_object_or_404(Class, pk=class_id)
 
     if request.method == 'POST':
@@ -117,6 +180,20 @@ def cancel_class(request, class_id):
 
 @login_required
 def edit_booking(request, booking_id):
+    """
+    Allows a logged-in user to edit a booking.
+
+    **Context**
+
+    ``booking``
+        An instance of :model:`booking.Booking` to be edited.
+    ``form``
+        An instance of :form:`booking.BookingForm` populated with existing booking data.
+
+    **Template:**
+
+    :template:`booking/edit_booking.html`
+    """
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
     if request.method == 'POST':
@@ -134,6 +211,18 @@ def edit_booking(request, booking_id):
 
 @login_required
 def cancel_booking(request, booking_id):
+    """
+    Allows a logged-in user to cancel a booking.
+
+    **Context**
+
+    ``booking``
+        An instance of :model:`booking.Booking` to be canceled.
+
+    **Template:**
+
+    :template:`booking/cancel_booking.html`
+    """
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
     if request.method == 'POST':
