@@ -182,7 +182,6 @@ Please refer to the [TESTING.md](TESTING.md) file for all test-related documenta
 
 - The app was deployed to [Heroku](https://www.heroku.com/).
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/).
-
 - The app can be reached by the [link](https://pool-bookin-system-c1efa7b0c18f.herokuapp.com/).
 
 Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-related documentation.
@@ -198,6 +197,8 @@ Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-relat
 - [Heroku](https://www.heroku.com/): for the free hosting of the website.
 - [Postgresql](https://www.postgresql.org/): for providing a free database.
 - [Haikei](https://haikei.app/): for providing a free svg brackground images.
+
+- The footer was based on my [Thread and rope project](https://github.com/Johns-Costa/threadandrope).
 
 
 ---
