@@ -153,6 +153,11 @@ Note: The absence of a edit function in the manage classes is intentional. Other
 
   The favicon is a small image that is displayed in the browser's address bar. It is used to identify the website among others and help the user to find it when he/she is searching for it.
 
+**Admin**
+
+Only Admin (superuser) can have full access to manage the app and can give staff member permition to a user.
+
+
 **Future features improvements**
 
  - Include EmailMultiAlternatives in order for the user to recive a message is a class has been deleted or a conforimation of the class booked or edited.
