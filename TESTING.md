@@ -59,7 +59,6 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 1           | Click on "Cancel Booking" | Redirection to home page, Booking deleted permanently | Y |  A "Booking deleted successfully!" message Shows |
 
 
-
 ---
 
 ## Validation:
@@ -122,8 +121,23 @@ Usability was tested with the below user acceptance testing, sent to new users t
 - No JS validation was necessary on this project.
 
 
+---
+
+## Bugs
+
+### Known bugs
+
+There are no current known bugs
+
+### Solved bugs
+
+There were plenty of bugs during the development process since this project was a learning platform for me and allowed me to improve my skills and knowledge significantly.
+
+However, I tried to solve the majority of them. One bug that took me a while to figure out was tat the index.html was constantly show messages besides the ones it was intented to. It turned out to be the if statement that was not written correctly.
+
 
 ---
+
 ## Lighthouse Report
 
 
@@ -163,6 +177,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 
 ![lighthouse_edit_booking](documentation/lighthouse_reports/lighthouse_edit_booking.png) 
 
+
 ---
 
 ## Compatibility
@@ -173,10 +188,9 @@ Testing was conducted on the following browsers;
 - Safari;
 
 
-
 ---
 
-# Responsiveness
+## Responsiveness
 
 The responsiveness was checked manually by using devtools (Chrome) throughout the whole development.
 

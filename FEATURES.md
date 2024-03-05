@@ -48,7 +48,7 @@ Note: Manage Classes only shows up as a staff member and Register at the sign in
 
 ![Footer](documentation/features/footer/footer.png)
 
-- Footer has the usual links for social media and the link the the creator's github profile
+- Footer has the usual links for social media and the link the creator's github profile
 
 
 **Sign In page**
@@ -134,6 +134,8 @@ Note: all the fields need to be filled in properly in order for the for to be ac
   - All the available classes with a cancel button that links to the Cancel Class page
   - A table with all the bookings from every user from the day of visualisation (is does not show past bookings)
   - A form with the fields Class Name and Class Description to be filled in, followed by a Add Class button. If the button is pressed and the form properly filled in, a new class is added.
+
+Note: The absence of a edit function in the manage classes is intentional. Otherwise a user could end up in a class different from what was initially booked. Since a staff member could change it's content after a user had booked that same class.
 
  **Cancel Class Page**
 

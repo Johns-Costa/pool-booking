@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+
 # Time periods variations
 TIME_PERIODS = (
     (0, '9:00-9:45'),

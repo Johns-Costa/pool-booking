@@ -2,7 +2,7 @@
 
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/).
 
-- The app can be reached by the [link](https://cool-school.onrender.com).
+- The app can be reached by the [link](hhttps://pool-bookin-system-c1efa7b0c18f.herokuapp.com/).
 
 ## Local deployment
 
@@ -72,7 +72,7 @@ Click on Reveal Config Vars and add the following config variables:
 | SECRET_KEY | ... |
 
 
-* Copy the value of DATABASE_URL and input it into the .env file and generate a secret key (you may use [Djecrety](https://djecrety.ir/) for secret key generation).
+* Copy the value of DATABASE_URL and input it into the .env file and generate a secret key (you shoud use any secret key generator for secret key generation).
 * Migrate changes.
 * Set debug to False in settings.py
 * Commit and push the changes to GitHub.

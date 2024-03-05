@@ -7,7 +7,7 @@
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    {% if 'manage_classes' or 'cancel_class' in message.tags %}
+    {% if 'manage_classes' in message.tags or 'cancel_class' in message.tags %}
     <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
         {% endif %}
         {% endfor %}

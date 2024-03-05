@@ -39,6 +39,7 @@ h3 {
 
 }
 
+
 /* ------NavBar */
 
 .navbar {
@@ -77,6 +78,8 @@ h3 {
     --bs-table-color: #1103a6;
     width: 100%;
 }
+
+
 /* -----Messages */
 
 .success {
