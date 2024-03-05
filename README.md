@@ -107,27 +107,16 @@ Please refer to the [FEATURES.md](FEATURES.md) file for all features-related doc
 
 ### Wireframes
 
-- [Desktop Wireframes](documentation/wireframes/pp4_desktop.pdf)
-- [Tablet Wireframes](documentation/wireframes/pp4_tablet.pdf)
-- [Mobile Wireframes](documentation/wireframes/pp4_mobile.pdf)
-
+![Wireframe](documentation/wireframe/wireframe.png)
 
 
 ---
 
 ## Flowcharts
 
-This application is aimed at users with different roles to fulfill their expectations and provide all functionality.
+The following flowcharts was created to help to understand the application and its functionality.
 
-The following flowcharts were created to help to understand the application and its functionality.
-
-The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
-
-- [Flowchart for ](documentation/flowcharts/flowchart_boss.pdf)
-- [Flowchart for Sales Managers](documentation/flowcharts/flowchart_sales.pdf)
-- [Flowchart for Parents](documentation/flowcharts/flowchart_parent.pdf)
-- [Flowchart for Teachers](documentation/flowcharts/flowchart_teachers.pdf)
-- [Flowchart for Receptionist](documentation/flowcharts/flowchart_receptionist.pdf)
+![Flowchart](documentation/flowcharts/flowchart.png)
 
 
 
