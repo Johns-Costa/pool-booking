@@ -1,3 +1,5 @@
+/* ------Base */
+
 header{
     background-color: #209CEE;
     margin: 0;
@@ -20,6 +22,24 @@ hr {
     padding-bottom: 20px;
     opacity: 1.0;
 }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: 'Montserat', 'Arial', sans-serif;
+}
+
+h3 {
+    margin: 20px;
+
+}
+
+/* ------NavBar */
 
 .navbar {
     --bs-body-bg: #209CEE;
@@ -48,21 +68,6 @@ hr {
     font-style: italic;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    font-family: 'Montserat', 'Arial', sans-serif;
-}
-
-h3 {
-    margin: 20px;
-
-}
-
 .class-border {
     border: 1px solid #ffffff;
 }
@@ -72,6 +77,7 @@ h3 {
     --bs-table-color: #1103a6;
     width: 100%;
 }
+/* -----Messages */
 
 .success {
     color: #00ff00 !important;
@@ -80,6 +86,8 @@ h3 {
 .error {
     color: #ff0000 !important;
 }
+
+
 /* -------- footer */
 
 footer {
