@@ -151,7 +151,9 @@ Note: all the fields need to be filled in properly in order for the for to be ac
 
   The favicon is a small image that is displayed in the browser's address bar. It is used to identify the website among others and help the user to find it when he/she is searching for it.
 
+**Future features improvements**
 
+ - Include EmailMultiAlternatives in order for the user to recive a message is a class has been deleted or a conforimation of the class booked or edited.
 
 
 
